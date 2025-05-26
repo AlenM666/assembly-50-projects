@@ -25,7 +25,7 @@ _start:
     
     cmp rax, 0
     jl exit_error       ; Jump if file open failed
-    mov [file_descriptor], eax
+    mov [file_descriptor], rax
     
     ; Read file content
     mov rax, 0          ; sys_read
@@ -34,7 +34,7 @@ _start:
     mov rdx, 1024       ; max bytes to read
     syscall
     
-    mov [bytes_read], eax
+    mov [bytes_read], rax
     
     ; Close file
     mov rax, 3          ; sys_close
